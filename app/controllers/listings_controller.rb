@@ -1,4 +1,8 @@
 class ListingsController < ApplicationController
+	def index
+		@listings = Listing.all
+	end
+
 	def new
   	@listing = Listing.new
 	end
@@ -10,7 +14,7 @@ class ListingsController < ApplicationController
 	    redirect_to @listing
 	  else
 	    render 'new'
-	  end   
+	  end
 	end
 
 	def show

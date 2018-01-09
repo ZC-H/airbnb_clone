@@ -1,0 +1,18 @@
+<h1><%= @listing.name %></h1>
+
+<%= @listing.main_category %>, <%= @listing.listing_type %>
+
+<p><%= @listing.beds %> Beds || <%= @listing.bedrooms %> Bedrooms || <%= @listing.bathrooms %> Bathrooms</p>
+
+<p>Features:</p>
+<ul class="list-group row">
+<% Tag.all.each do |t| %>
+	<li class="list-group-item col-xs-6">
+		<% if @listing.tags.include?(t) %>
+			<%= t.name.titleize %>
+		<% else %>
+			<s><%= t.name.titleize %></s>
+		<% end %>
+	</li>
+<% end %>
+</ul>
