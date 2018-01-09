@@ -1,7 +1,8 @@
 class User < ApplicationRecord
   include Clearance::User
   has_many :authentications, dependent: :destroy
-
+  enum gender: [:male,:female]
+  
     def self.create_with_auth_and_hash(authentication, auth_hash)
       user = self.create!(
         name: auth_hash["name"],

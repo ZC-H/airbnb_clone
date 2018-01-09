@@ -1,4 +1,6 @@
 <h1><%= @listing.name %></h1>
+<br>by <%= @listing.user.name %><br>
+<% p @listing.user %>
 
 <%= @listing.main_category %>, <%= @listing.listing_type %>
 
