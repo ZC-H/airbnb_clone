@@ -1,45 +1,6 @@
 <%= form_for @listing do |f| %>
-  <p>
-    <%= f.label "Listing name:" %><br>
-    <%= f.text_field :name %><br><br>
-    <%= f.label "Address line:" %><br>
-    <%= f.text_field :address %>
-    <%= f.label "State:" %><br>
-    <%= f.text_field :state %>
-    <%= f.label "City:" %><br>
-    <%= f.text_field :city %>
-    <%= f.label "Country:" %><br>
-    <%= f.text_field :country %>
-    <%= f.label "Zipcode:" %><br>
-    <%= f.text_field :zipcode %>
-    <%= f.label "Main Category:" %><br>
-    <%= f.select :main_category, ['Home','Hotel','Other'], {}, {:class => 'form-control'} %><br>
-    <%= f.label "Type:" %><br>
-    <%= f.select :listing_type, ['Apartment',
-										    'Condominium',
-										    'Guesthouse',
-										    'House',
-										    'In-law',
-										    'Guest Suite',
-										    'Town House',
-										    'Vacation Home',
-										    'Other'], {}, {:class => 'form-control'} %><br>
-		<%= f.label "Description:" %><br>
-    <%= f.text_area :description %>
-		<%= f.label "Beds:" %><br>
-    <%= f.number_field :beds %><br>
-    <%= f.label "Bedrooms:" %><br>
-    <%= f.number_field :bedrooms %><br>
-    <%= f.label "Bathrooms:" %><br>
-    <%= f.number_field :bathrooms %><br>
-    <%= f.label "Price per night:" %><br>
-    <%= f.number_field :price %><br>
-    <p>Choose tags that apply:</p>
-    <%= f.collection_check_boxes :tag_ids, Tlag.all, :id, :name do |t| %>
-  		<%= t.label(class:"label-checkbox") { t.check_box + t.text.titleize } %>
-		<% end %>
 
-  </p>
+	<%= render "form", f: f %>
 
   <p>
     <%= f.submit "Submit Listing", :class => 'btn btn-primary btn-lg' %>

@@ -3,7 +3,6 @@ class UsersController < Clearance::UsersController
 		@user = User.find(params[:id])
 	end
 	def update
-		p params
 		@user = User.find(params[:id])
 		if @user.update_attributes(user_params)
       redirect_to @user

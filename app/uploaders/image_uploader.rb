@@ -1,4 +1,4 @@
-class AvatarUploader < CarrierWave::Uploader::Base
+class ImageUploader < CarrierWave::Uploader::Base
 
   # Include RMagick or MiniMagick support:
   # include CarrierWave::RMagick
@@ -51,3 +51,5 @@ class AvatarUploader < CarrierWave::Uploader::Base
   # end
 
 end
+
+#Use subclasses if different types of uploaders are needed

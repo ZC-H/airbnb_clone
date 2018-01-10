@@ -3,7 +3,7 @@ class User < ApplicationRecord
   has_many :authentications, dependent: :destroy
   enum gender: [:male,:female]
   enum role: [:customer,:moderator,:admin]
-  mount_uploader :avatar, AvatarUploader
+  mount_uploader :avatar, ImageUploader
 
   #Facebook OAuth
     def self.create_with_auth_and_hash(authentication, auth_hash)
