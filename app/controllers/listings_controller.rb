@@ -3,7 +3,6 @@ class ListingsController < ApplicationController
 		@listings = Listing.order(:id).page params[:page]
 	end
 
-
 	def new
   	@listing = Listing.new
 	end
@@ -21,6 +20,8 @@ class ListingsController < ApplicationController
 	def show
     @listing = Listing.find(params[:id])
 	end
+
+	
 
 	private 
 	def listing_params

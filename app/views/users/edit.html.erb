@@ -1,0 +1,28 @@
+<h1>Edit user info</h1>
+
+<%= form_for @user, :method => :put do |f| %>
+	
+
+  <%= f.label "Name:" %><br>
+  <%= f.text_field :name %><br>
+  <%= f.label "Gender:" %><br>
+  <%= f.radio_button :gender, :male %> Male
+	<%= f.radio_button :gender, :female %> Female<br>
+	<%= f.label "Email:" %><br>
+  <%= f.text_field :email %><br>
+	<%= f.label "Phone number:" %><br>
+  <%= f.text_field :phone %><br>
+	<%= f.label "Birthdate:" %><br>
+  <%= f.date_select :birthdate, :start_year => (Date.today.year - 150) %><br>
+	<%= f.label "Country:" %><br>
+  <%= f.text_field :country %><br>
+  <div class="submit-field">
+    <%= f.submit "Update Info", :class => 'btn btn-primary btn-lg'  %>
+  </div>
+
+    
+
+
+	  params.require(:user).permit(:name, :email, :country, :gender, :phone, :birthdate, :role, :avatar)
+	
+<% end %>

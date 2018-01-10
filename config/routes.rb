@@ -2,7 +2,8 @@ Rails.application.routes.draw do
   #get 'static/home'
 
   root 'static#home'
-
+  resources :users
+  
   resources :passwords, controller: "clearance/passwords", only: [:create, :new]
   resource :session, controller: "clearance/sessions", only: [:create]
 
