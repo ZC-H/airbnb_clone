@@ -1,8 +1,11 @@
 <h1>Edit user info</h1>
 
 <%= form_for @user, :method => :put do |f| %>
-	
-
+	<%= f.label "Avatar:" %><br>
+	<% if !@user.avatar.file.nil? %>
+		<%= image_tag @user.avatar.url , size: "150" %>
+	<% end %>
+	<%= f.file_field :avatar %><br>
   <%= f.label "Name:" %><br>
   <%= f.text_field :name %><br>
   <%= f.label "Gender:" %><br>
@@ -21,8 +24,5 @@
   </div>
 
     
-
-
-	  params.require(:user).permit(:name, :email, :country, :gender, :phone, :birthdate, :role, :avatar)
 	
 <% end %>
