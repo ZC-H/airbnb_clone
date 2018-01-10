@@ -56,6 +56,10 @@ ActiveRecord::Base.transaction do
 
     listing['user_id'] = uids.sample
     # To include: Listing tags randomisation
+    listing['max_guests'] = rand(1..6)
+    tags = []
+    (1..28).to_a.each {|x| tags << x if rand(2) == 0}
+    listing['tag_ids'] = tags
     Listing.create(listing)
   end
 end

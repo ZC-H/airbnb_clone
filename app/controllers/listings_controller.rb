@@ -1,4 +1,9 @@
 class ListingsController < ApplicationController
+	before_action	:find_listing, only: [:show, :edit, :update]
+	def find_listing
+		@listing = Listing.find(params[:id])
+	end
+
 	def index
 		@listings = Listing.order(:id).page params[:page]
 	end
@@ -8,8 +13,7 @@ class ListingsController < ApplicationController
 	end
 
 	def create
-	  @listing = Listing.new(listing_params)
-	  @listing.user = current_user
+	  @listing = current_user.listings.new(listing_params)
 	  if @listing.save
 	    redirect_to @listing
 	  else
@@ -18,16 +22,17 @@ class ListingsController < ApplicationController
 	end
 
 	def show
-    @listing = Listing.find(params[:id])
+		@reservation = Reservation.new
 	end
+
 	def edit
-  	@listing = Listing.find(params[:id])
   end
+
 	def update
-  	@listing = Listing.find(params[:id])
   	if @listing.update_attributes(listing_params)
       redirect_to @listing
     else
+    	flash[:danger] = "Error updating listing"
       render 'edit'
     end
 	end
