@@ -2,3 +2,5 @@
 <% @listings.each do |lt| %>
 	<%= render "listing", listing: lt %>
 <% end %>
+
+<%= paginate @listings %>

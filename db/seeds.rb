@@ -55,7 +55,7 @@ ActiveRecord::Base.transaction do
     listing['description'] = Faker::Hipster.sentence
 
     listing['user_id'] = uids.sample
-
+    # To include: Listing tags randomisation
     Listing.create(listing)
   end
 end
