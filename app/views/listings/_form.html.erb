@@ -39,7 +39,6 @@
 		<% end %>
     <br><h3><%= f.label "Photos:" %></h3><br>
     <%= f.file_field :photos, multiple: true %><br>
-    <% p @listing.photos %>
     <% if !(@listing.photos == []) %>
         <% @listing.photos.each do |photo| %>
             <%= image_tag photo.url , size: "200" %>

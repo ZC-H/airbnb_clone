@@ -1,9 +1,21 @@
 
 <div class="panel panel-default">
-  <div class="panel-body"><a href = <%= listing_path(listing) %> ><h3><%= listing.name %></h3></a><br>
-  	<span class="glyphicon glyphicon-bed"></span> <%= listing.beds %> Beds
-  	<span class="glyphicon glyphicon-lamp"></span> <%= listing.bedrooms %> Bedrooms
-  	<span class="glyphicon glyphicon-scale"></span> <%= listing.bathrooms %> Bathrooms<br>
-  	<span class="glyphicon glyphicon-globe"></span> <%= listing.country %> || <%= listing.price %> / night
+  <div class="panel-body">
+  	<div class="row">
+  		<div class="col-xs-7">
+  			<a href = <%= listing_path(listing) %> ><h3><%= listing.name %></h3></a><br>
+		  	<%= listing.state %>, <%= listing.country %><br>
+		  	<%= listing.description %><br>
+		  	<span class="glyphicon glyphicon-bed"></span> <%= listing.beds %> Beds
+		  	<span class="glyphicon glyphicon-lamp"></span> <%= listing.bedrooms %> Bedrooms
+		  	<span class="glyphicon glyphicon-scale"></span> <%= listing.bathrooms %> Bathrooms<br>
+		  	<span class="glyphicon glyphicon-globe"></span> <%= listing.country %> || <%= listing.price %> / night
+	 	  </div>
+	 	  <div class="col-xs-4">
+	 	  	<% if !(listing.photos == []) %>
+	 	  		<%= image_tag listing.photos[0].url , { :align => "right", :width => '100%', :height => "auto", :class => "img-fluid rounded float-right" }%>
+	 	  	<% end %>
+	 	  </div>
+	 	</div>
   </div>
 </div>

@@ -1,6 +1,36 @@
 <h1><%= @listing.name %></h1>
 <br>by <%= @listing.user.name %><br>
-<% p @listing.user %>
+
+<div id="myCarousel" class="carousel slide" data-ride="carousel">
+  <!-- Indicators -->
+  <ol class="carousel-indicators">
+    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+    <li data-target="#myCarousel" data-slide-to="1"></li>
+    <li data-target="#myCarousel" data-slide-to="2"></li>
+  </ol>
+
+  <!-- Wrapper for slides -->
+  <div class="carousel-inner" style="height: 500px !important;">
+
+  	<% if !(@listing.photos == []) %>
+  		<div class="item active"><%= image_tag @listing.photos[0].url %></div>
+        <% @listing.photos[1..-1].each do |photo| %>
+            <div class="item"><%= image_tag photo.url %></div>
+        <% end %>
+    <% end %>
+  </div>
+
+  <!-- Left and right controls -->
+  <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+    <span class="glyphicon glyphicon-chevron-left"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="right carousel-control" href="#myCarousel" data-slide="next">
+    <span class="glyphicon glyphicon-chevron-right"></span>
+    <span class="sr-only">Next</span>
+  </a>
+</div>
+
 
 <%= @listing.main_category %>, <%= @listing.listing_type %>
 
