@@ -1,5 +1,6 @@
 class Listing < ApplicationRecord
 	belongs_to	:user
+	has_many 	:reservations
 	has_many 	:tagallocs
 	has_many	:tags, :through => :tagallocs
 	mount_uploaders :photos, ImageUploader

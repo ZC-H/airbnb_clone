@@ -1,1 +1,6 @@
 Hi
+
+<h3>Reservations</h3>
+<% @user.reservations.each do |res| %>
+	<%= render "reservations/reserv", reservation: res %>
+<% end %>
