@@ -227,6 +227,7 @@ DEPENDENCIES
   jquery-rails
   kaminari
   listen (~> 3.0.5)
+  mail
   momentjs-rails (>= 2.9.0)
   omniauth
   omniauth-facebook
