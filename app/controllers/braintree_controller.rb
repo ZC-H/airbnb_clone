@@ -5,11 +5,12 @@ class BraintreeController < ApplicationController
   def checkout
     nonce_from_the_client = params[:checkout_form][:payment_method_nonce]
 
-    @reservation = Reservation.create(JSON.parse params[:checkout_form][:reservation])
+    @reservation = Reservation.new(JSON.parse params[:checkout_form][:reservation])
 
     if !@reservation.valid?
     	flash[:danger] = 'Error making reservation'
     	redirect_to @reservation.listing
+    	return
     end
 
     result = Braintree::Transaction.sale(

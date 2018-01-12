@@ -31,7 +31,7 @@ class Reservation < ApplicationRecord
 	end
 
 	def length
-		(end_date - start_date).to_i
+		(end_date - start_date).to_i.abs
 	end
 
 	def total_cost
