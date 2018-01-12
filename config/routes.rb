@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'braintree/new'
+
   #get 'static/home'
 
   root 'static#home'

@@ -4,16 +4,20 @@ class ReservationsController < ApplicationController
 		@reservation = current_user.reservations.new(reservation_params)
 		@listing = Listing.find(params[:listing_id])
 		@reservation.listing = @listing
-	  if @reservation.save
+	  if @reservation.save #valid?
 	  	flash[:success] = 'Reservation successful'
 	    redirect_to @listing
 	  else
+	  	@errors = @reservation.errors.full_messages
 	  	flash[:danger] = 'Error making reservation'
-	    redirect_to @listing
+	    render 'listings/show'
 	  end
 	end
 
 	def destroy
+		@reservation = Reservation.find(params[:id])
+		@reservation.destroy
+		redirect_to current_user
 	end
 
 	private 

@@ -1,3 +1,8 @@
+<% if @errors.present? %>
+  <% @errors.each do |error| %>
+  	<%= error %><br>
+  <% end %>
+<% end %>
 
 	<%= f.label "Start Date:" %><br>
 	<div class="container">

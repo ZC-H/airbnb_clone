@@ -1,5 +1,8 @@
 <div class="panel panel-default">
   <div class="panel-body">
-  	<a href = <%= listing_path(reservation.listing) %> ><h3><%= reservation.listing.name %></h3></a>
+  	<a href = <%= listing_path(reservation.listing) %> ><h3><%= reservation.listing.name %></h3></a><br>
+  	<span class="glyphicon glyphicon-calendar"></span><%= reservation.start_date %> to <%= reservation.end_date %><br>
+  	<span class="glyphicon glyphicon-user"></span><%= reservation.guest_num %> Guests<br>
+  	<%= link_to "Delete Reservation", [reservation.listing, reservation], :method => :delete %>
   </div>
 </div>
