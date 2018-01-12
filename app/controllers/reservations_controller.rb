@@ -4,9 +4,11 @@ class ReservationsController < ApplicationController
 		@reservation = current_user.reservations.new(reservation_params)
 		@listing = Listing.find(params[:listing_id])
 		@reservation.listing = @listing
-	  if @reservation.save #valid?
+	  if @reservation.valid? #valid?
+	  	@reserjson = @reservation.to_json
+	  	@client_token = Braintree::ClientToken.generate
 	  	flash[:success] = 'Reservation successful'
-	    redirect_to @listing
+	    render 'listings/confirm_payment'
 	  else
 	  	@errors = @reservation.errors.full_messages
 	  	flash[:danger] = 'Error making reservation'

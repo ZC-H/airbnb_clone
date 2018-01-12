@@ -29,4 +29,13 @@ class Reservation < ApplicationRecord
 			return errors.add(:guest_number, "More than zero guests must attend.")
 		end
 	end
+
+	def length
+		(end_date - start_date).to_i
+	end
+
+	def total_cost
+		length * listing.price
+	end
+
 end
